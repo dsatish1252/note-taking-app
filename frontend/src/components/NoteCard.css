@@ -1,0 +1,178 @@
+.note-card {
+    background: linear-gradient(145deg, var(--bg-card) 0%, rgba(255, 255, 255, 0.05) 100%);
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    transition: transform var(--transition-normal) var(--ease-out),
+        box-shadow var(--transition-normal) var(--ease-out),
+        background-color var(--transition-normal) var(--ease-in-out);
+    animation: scaleIn 0.3s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.note-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-500), var(--accent-500));
+    opacity: 0;
+    transition: opacity var(--transition-normal) var(--ease-out);
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.note-card:hover::before {
+    opacity: 1;
+}
+
+.note-card h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    line-height: 1.3;
+}
+
+.note-card p {
+    color: var(--text-secondary);
+    flex-grow: 1;
+    margin-bottom: var(--space-4);
+    font-size: 0.938rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.note-card-date {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.note-card-date svg {
+    width: 14px;
+    height: 14px;
+}
+
+.note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-2);
+    margin-top: auto;
+}
+
+.note-actions button {
+    width: auto;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.875rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    transition: background-color var(--transition-fast) var(--ease-out),
+        transform var(--transition-fast) var(--ease-out);
+}
+
+.note-actions button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.note-actions .edit-button {
+    background: linear-gradient(135deg, var(--secondary-500) 0%, var(--secondary-600) 100%);
+}
+
+.note-actions .edit-button:hover {
+    background: linear-gradient(135deg, var(--secondary-600) 0%, var(--secondary-500) 100%);
+}
+
+.note-actions .delete-button {
+    background: linear-gradient(135deg, var(--danger-500) 0%, var(--danger-600) 100%);
+}
+
+.note-actions .delete-button:hover {
+    background: linear-gradient(135deg, var(--danger-600) 0%, var(--danger-500) 100%);
+}
+
+.note-actions button:active {
+    transform: scale(0.95);
+}
+
+/* Card color variations */
+.note-card:nth-child(5n+1)::before {
+    background: linear-gradient(to right, var(--primary-500), var(--primary-400));
+}
+
+.note-card:nth-child(5n+2)::before {
+    background: linear-gradient(to right, var(--secondary-600), var(--secondary-500));
+}
+
+.note-card:nth-child(5n+3)::before {
+    background: linear-gradient(to right, var(--accent-600), var(--accent-500));
+}
+
+.note-card:nth-child(5n+4)::before {
+    background: linear-gradient(to right, var(--success-600), var(--success-500));
+}
+
+.note-card:nth-child(5n+5)::before {
+    background: linear-gradient(to right, var(--warning-600), var(--warning-500));
+}
+
+/* Card animations for adding/deleting */
+.note-card.adding {
+    animation: fadeIn 0.5s var(--ease-out);
+}
+
+.note-card.deleting {
+    animation: fadeOut 0.3s var(--ease-in) forwards;
+    pointer-events: none;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .note-card {
+        padding: var(--space-4);
+        min-height: 160px;
+    }
+
+    .note-card h3 {
+        font-size: 1.125rem;
+    }
+
+    .note-card p {
+        font-size: 0.875rem;
+        -webkit-line-clamp: 3;
+    }
+
+    .note-actions button {
+        padding: var(--space-1) var(--space-2);
+    } }
