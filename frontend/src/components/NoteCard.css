@@ -1,3 +1,5 @@
+/* client/src/components/NoteCard.css */
+
 .note-card {
     background: linear-gradient(145deg, var(--bg-card) 0%, rgba(255, 255, 255, 0.05) 100%);
     padding: var(--space-5);
@@ -56,10 +58,11 @@
     line-height: 1.6;
     white-space: pre-wrap;
     word-wrap: break-word;
-    display: -webkit-box;
+    /* REMOVE THESE LINES TO PREVENT TRUNCATION ON THE CARD ITSELF */
+    /* display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    overflow: hidden; */
 }
 
 .note-card-date {
@@ -170,9 +173,11 @@
 
     .note-card p {
         font-size: 0.875rem;
-        -webkit-line-clamp: 3;
+        /* -webkit-line-clamp: 3; */
+        /* Also remove this for smaller screens */
     }
 
     .note-actions button {
         padding: var(--space-1) var(--space-2);
-    } }
+    }
+}

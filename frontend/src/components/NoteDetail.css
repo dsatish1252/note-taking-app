@@ -1,0 +1,71 @@
+/* client/src/components/NoteDetail.css */
+
+.note-detail-container {
+    background: var(--bg-card);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 800px;
+    margin: var(--space-8) auto;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.note-detail-title {
+    font-size: 2rem;
+    margin-bottom: var(--space-4);
+    color: var(--primary-500);
+    word-wrap: break-word;
+}
+
+.note-detail-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    /* Preserves whitespace and line breaks */
+    word-wrap: break-word;
+    margin-bottom: var(--space-5);
+    color: var(--text-secondary);
+}
+
+.note-detail-date {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: var(--accent-500);
+    font-size: 1rem;
+    padding: var(--space-2);
+    margin-bottom: var(--space-4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    transition: color var(--transition-fast) ease-in-out;
+}
+
+.back-button:hover {
+    color: var(--accent-400);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .note-detail-container {
+        padding: var(--space-5);
+        margin: var(--space-6) var(--space-4);
+    }
+
+    .note-detail-title {
+        font-size: 1.75rem;
+    }
+
+    .note-detail-content {
+        font-size: 1rem;
+    }
+}
